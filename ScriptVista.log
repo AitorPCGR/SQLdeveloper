@@ -1,0 +1,323 @@
+Dragged Objects:
+INICIAL.SYSTEM.TABLE.AFICION
+INICIAL.SYSTEM.TABLE.CANTICOS
+INICIAL.SYSTEM.TABLE.EQUIPO
+INICIAL.SYSTEM.TABLE.ESTADIO
+INICIAL.SYSTEM.TABLE.JUGADORES
+Drop Target: HR
+Copiar DDL: Yes
+Do Not Replace Existing Objects
+Copiar Datos: Yes
+Append Existing Objects
+--- START --------------------------------------------------------------------
+set define off;
+
+--------------------------------------------------------
+--  DDL for Table AFICION
+--------------------------------------------------------
+
+  CREATE TABLE "AFICION" ("AFICION_ID" VARCHAR2(30 BYTE), "NOMBRE_DE_GUERRA" VARCHAR2(30 BYTE), "EQUIPO_ID" NUMBER) ;
+
+Table "AFICION" creado.
+
+
+--- END --------------------------------------------------------------------
+
+--- START --------------------------------------------------------------------
+set define off;
+
+--------------------------------------------------------
+--  DDL for Table CANTICOS
+--------------------------------------------------------
+
+  CREATE TABLE "CANTICOS" ("CANTICOS_ID" NUMBER, "NOMBRE" VARCHAR2(20 BYTE), "AFICION_ID" NUMBER) ;
+
+Table "CANTICOS" creado.
+
+
+--- END --------------------------------------------------------------------
+
+--- START --------------------------------------------------------------------
+set define off;
+
+--------------------------------------------------------
+--  DDL for Table EQUIPO
+--------------------------------------------------------
+
+  CREATE TABLE "EQUIPO" ("EQUIPO_ID" NUMBER, "NOMBRE" VARCHAR2(20 BYTE), "ESTADIO_ID" NUMBER) ;
+
+Table "EQUIPO" creado.
+
+
+--- END --------------------------------------------------------------------
+
+--- START --------------------------------------------------------------------
+set define off;
+
+--------------------------------------------------------
+--  DDL for Table ESTADIO
+--------------------------------------------------------
+
+  CREATE TABLE "ESTADIO" ("ESTADIO_ID" NUMBER, "JUGADORES_ID" VARCHAR2(20 BYTE), "EQUIPO_ID" NUMBER) ;
+
+Table "ESTADIO" creado.
+
+
+--- END --------------------------------------------------------------------
+
+--- START --------------------------------------------------------------------
+set define off;
+
+--------------------------------------------------------
+--  DDL for Table JUGADORES
+--------------------------------------------------------
+
+  CREATE TABLE "JUGADORES" ("JUGADORES_ID" NUMBER, "NOMBRE" VARCHAR2(20 BYTE), "EQUIPO_ID" NUMBER, "ESTADIO_ID" NUMBER, "SALARIO" NUMBER) ;
+
+Table "JUGADORES" creado.
+
+
+--- END --------------------------------------------------------------------
+
+--- START --------------------------------------------------------------------
+Moviendo datos para el objeto AFICION
+
+Insertar 1 filas en AFICION en 20 milisegundos
+--- END --------------------------------------------------------------------
+
+--- START --------------------------------------------------------------------
+Moviendo datos para el objeto CANTICOS
+
+Insertar 2 filas en CANTICOS en 0 milisegundos
+--- END --------------------------------------------------------------------
+
+--- START --------------------------------------------------------------------
+Moviendo datos para el objeto EQUIPO
+
+Insertar 1 filas en EQUIPO en 10 milisegundos
+--- END --------------------------------------------------------------------
+
+--- START --------------------------------------------------------------------
+Moviendo datos para el objeto ESTADIO
+
+Insertar 3 filas en ESTADIO en 0 milisegundos
+--- END --------------------------------------------------------------------
+
+--- START --------------------------------------------------------------------
+Moviendo datos para el objeto JUGADORES
+
+Insertar 3 filas en JUGADORES en 10 milisegundos
+--- END --------------------------------------------------------------------
+
+--- START --------------------------------------------------------------------
+set define off;
+
+--------------------------------------------------------
+--  DDL for Index AFICION_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "AFICION_PK" ON "AFICION" ("AFICION_ID") ;
+
+Unique index "AFICION_PK" creado.
+
+
+--- END --------------------------------------------------------------------
+
+--- START --------------------------------------------------------------------
+set define off;
+
+--------------------------------------------------------
+--  DDL for Index CANTICOS_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "CANTICOS_PK" ON "CANTICOS" ("CANTICOS_ID") ;
+
+Unique index "CANTICOS_PK" creado.
+
+
+--- END --------------------------------------------------------------------
+
+--- START --------------------------------------------------------------------
+set define off;
+
+--------------------------------------------------------
+--  DDL for Index EQUIPO_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "EQUIPO_PK" ON "EQUIPO" ("EQUIPO_ID") ;
+
+Unique index "EQUIPO_PK" creado.
+
+
+--- END --------------------------------------------------------------------
+
+--- START --------------------------------------------------------------------
+set define off;
+
+--------------------------------------------------------
+--  DDL for Index ESTADIO_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ESTADIO_PK" ON "ESTADIO" ("ESTADIO_ID", "JUGADORES_ID") ;
+
+Unique index "ESTADIO_PK" creado.
+
+
+--- END --------------------------------------------------------------------
+
+--- START --------------------------------------------------------------------
+set define off;
+
+--------------------------------------------------------
+--  DDL for Index JUGADORES_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "JUGADORES_PK" ON "JUGADORES" ("JUGADORES_ID") ;
+
+Unique index "JUGADORES_PK" creado.
+
+
+--- END --------------------------------------------------------------------
+
+--- START --------------------------------------------------------------------
+set define off;
+
+--------------------------------------------------------
+--  Constraints for Table AFICION
+--------------------------------------------------------
+
+  ALTER TABLE "AFICION" ADD CONSTRAINT "AFICION_PK" PRIMARY KEY ("AFICION_ID") ENABLE;
+  ALTER TABLE "AFICION" MODIFY ("AFICION_ID" NOT NULL ENABLE);
+
+Table "AFICION" alterado.
+
+
+Table "AFICION" alterado.
+
+
+--- END --------------------------------------------------------------------
+
+--- START --------------------------------------------------------------------
+set define off;
+
+--------------------------------------------------------
+--  Constraints for Table CANTICOS
+--------------------------------------------------------
+
+  ALTER TABLE "CANTICOS" MODIFY ("AFICION_ID" NOT NULL ENABLE);
+  ALTER TABLE "CANTICOS" ADD CONSTRAINT "CANTICOS_PK" PRIMARY KEY ("CANTICOS_ID") ENABLE;
+  ALTER TABLE "CANTICOS" MODIFY ("CANTICOS_ID" NOT NULL ENABLE);
+
+Table "CANTICOS" alterado.
+
+
+Table "CANTICOS" alterado.
+
+
+Table "CANTICOS" alterado.
+
+
+--- END --------------------------------------------------------------------
+
+--- START --------------------------------------------------------------------
+set define off;
+
+--------------------------------------------------------
+--  Constraints for Table EQUIPO
+--------------------------------------------------------
+
+  ALTER TABLE "EQUIPO" MODIFY ("ESTADIO_ID" NOT NULL ENABLE);
+  ALTER TABLE "EQUIPO" ADD CONSTRAINT "EQUIPO_PK" PRIMARY KEY ("EQUIPO_ID") ENABLE;
+  ALTER TABLE "EQUIPO" MODIFY ("EQUIPO_ID" NOT NULL ENABLE);
+
+Table "EQUIPO" alterado.
+
+
+Table "EQUIPO" alterado.
+
+
+Table "EQUIPO" alterado.
+
+
+--- END --------------------------------------------------------------------
+
+--- START --------------------------------------------------------------------
+set define off;
+
+--------------------------------------------------------
+--  Constraints for Table ESTADIO
+--------------------------------------------------------
+
+  ALTER TABLE "ESTADIO" MODIFY ("EQUIPO_ID" NOT NULL ENABLE);
+  ALTER TABLE "ESTADIO" MODIFY ("JUGADORES_ID" NOT NULL ENABLE);
+  ALTER TABLE "ESTADIO" ADD CONSTRAINT "ESTADIO_PK" PRIMARY KEY ("ESTADIO_ID", "JUGADORES_ID") ENABLE;
+  ALTER TABLE "ESTADIO" MODIFY ("ESTADIO_ID" NOT NULL ENABLE);
+
+Table "ESTADIO" alterado.
+
+
+Table "ESTADIO" alterado.
+
+
+Table "ESTADIO" alterado.
+
+
+Table "ESTADIO" alterado.
+
+
+--- END --------------------------------------------------------------------
+
+--- START --------------------------------------------------------------------
+set define off;
+
+--------------------------------------------------------
+--  Constraints for Table JUGADORES
+--------------------------------------------------------
+
+  ALTER TABLE "JUGADORES" ADD CONSTRAINT "JUGADORES_PK" PRIMARY KEY ("JUGADORES_ID") ENABLE;
+  ALTER TABLE "JUGADORES" MODIFY ("ESTADIO_ID" NOT NULL ENABLE);
+  ALTER TABLE "JUGADORES" MODIFY ("EQUIPO_ID" NOT NULL ENABLE);
+  ALTER TABLE "JUGADORES" MODIFY ("JUGADORES_ID" NOT NULL ENABLE);
+
+Table "JUGADORES" alterado.
+
+
+Table "JUGADORES" alterado.
+
+
+Table "JUGADORES" alterado.
+
+
+Table "JUGADORES" alterado.
+
+
+--- END --------------------------------------------------------------------
+
+--- START --------------------------------------------------------------------
+set define off;
+
+--------------------------------------------------------
+--  Ref Constraints for Table AFICION
+--------------------------------------------------------
+
+  ALTER TABLE "AFICION" ADD CONSTRAINT "EQUIPO_FK" FOREIGN KEY ("EQUIPO_ID") REFERENCES "EQUIPO" ("EQUIPO_ID") ENABLE;
+
+Table "AFICION" alterado.
+
+
+--- END --------------------------------------------------------------------
+
+--- START --------------------------------------------------------------------
+set define off;
+
+--------------------------------------------------------
+--  Ref Constraints for Table ESTADIO
+--------------------------------------------------------
+
+  ALTER TABLE "ESTADIO" ADD CONSTRAINT "JUGADORES_FK1" FOREIGN KEY ("EQUIPO_ID") REFERENCES "EQUIPO" ("EQUIPO_ID") ON DELETE SET NULL ENABLE;
+
+Table "ESTADIO" alterado.
+
+
+--- END --------------------------------------------------------------------
+
